@@ -12,7 +12,8 @@ Repositori ini berisi **materi pembelajaran Flutter** yang disusun per hari (Day
 * **Day 2 – Layouting & State pada Flutter**
   👉 [Lihat / Download PPT Day 2](https://drive.google.com/file/d/1DFkDUfgkWgdO0-akuD_OGO-gt7SGtFHD/view?usp=sharing)
 
-* **Day 3 – (Coming Soon)**
+* **Day 3 – Navigasi pada Flutter**
+  👉 [Lihat / Download PPT Day 3](https://drive.google.com/file/d/1iv443tBGDtpi5yRwEeNtBIhG97V0aRUx/view?usp=sharing)
 
 * **Day 4 – (Coming Soon)**
 
