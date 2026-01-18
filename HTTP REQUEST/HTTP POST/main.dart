@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as myhttp;
 
 void main() {
@@ -65,7 +66,8 @@ class _HomePageState extends State<HomePage> {
             TextField(
               controller: ageC,
               autocorrect: false,
-              keyboardType: TextInputType.numberWithOptions(decimal: true),
+              keyboardType: TextInputType.numberWithOptions(decimal: false),
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
               decoration: InputDecoration(
                 labelText: "Umur",
                 border: OutlineInputBorder(),
