@@ -1,0 +1,392 @@
+Kebutuhan sistem yang digunakan untuk mengembangkan aplikasi berbasis mobile adalah, kecuali:
+A. Java Development Kit 
+B. Android Studio 
+C. Xcode 
+D. Software Development Kit  
+E. Web Browser 
+ANSWER: E
+
+Sebuah program emulasi untuk mencoba aplikasi mobile Android secara virtual adalah:
+A. Android Virtual Device  
+B. Java Development Kit 
+C. Software Development Kit 
+D. Java Virtual Machine 
+E. Java Runtime 
+ANSWER: A
+
+Karakteristik dari perangkat mobile antara lain (pilih 3):
+A. Portable 
+B. Berukuran Kecil 
+C. Komunikasi Nirkabel 
+D. Komunikasi Kabel 
+ANSWER: A, B, C
+
+Yang termasuk platform sistem operasi untuk perangkat mobile adalah, kecuali: 
+A. Symbian  
+B. Android  
+C. iOS 
+D. Windows Phone 
+E. Windows 10
+ANSWER: E
+
+Yang merupakan teks editor khusus platform sistem operasi mobile iOS adalah: 
+A. Android Studio
+B. Netbeans IDE 
+C. Eclipse IDE 
+D. IntelliJ IDEA 
+E. Xcode 
+ANSWER: E
+
+Bahasa pemrograman yang digunakan untuk memprogram aplikasi berbasis mobile adalah, kecuali: 
+A. Java 
+B. Kotlin 
+C. Swift 
+D. Objective-C
+E. Ruby 
+ANSWER: E
+
+Yang termasuk tipe data primitive adalah, kecuali:  
+A. Boolean 
+B. Double 
+C. Char  
+D. Integer 
+E. Array 
+ANSWER: E
+
+Yang termasuk tipe data non-primitive adalah: 
+A. Array 
+B. Boolean 
+C. Integer 
+D. Byte 
+E. Char 
+ANSWER: A
+
+(1) int x = 20;
+(2) int y = 18;
+(3) if (x > y) {
+(4) System.out.println("x is greater than y");
+(5) } 
+Baris yang menunjukkan suatu kondisi adalah: 
+A. (3) 
+B. (2) 
+C. (1) 
+D. (4) 
+ANSWER: A
+
+(1) int i = 0;
+(2) while (i < 5) {
+(3) System.out.println(i);
+(4) i++;
+(5) }
+Baris yang menunjukkan suatu incremental adalah: 
+A. (4) 
+B. (1) 
+C. (2) 
+D. (3) 
+ANSWER: A
+
+Jenis / kategori sensor pada perangkat mobile adalah (pilih 3): 
+A. Sensor Gerak 
+B. Sensor Lingkungan 
+C. Sensor Posisi 
+D. Sensor Suhu 
+ANSWER: A,B, C
+
+Jenis serangan aktif pada jaringan WLAN adalah, kecuali:  
+A. Denial of Service 
+B. Traffic Analisys 
+C. Modification of Message 
+D. Session Hijacking (Masquerade) 
+E. Reply Attack 
+ANSWER: B
+
+Jenis serangan pasif pada jaringan WLAN adalah:  
+A. Denial of Service 
+B. Traffic Analisys 
+C. Modification of Message 
+D. Masquerade 
+E. Replay Attack 
+ANSWER: B
+
+Yang termasuk jenis resiko keamanan perangkat mobile adalah, kecuali:
+A. Resiko Fisik 
+B. Resiko Pengguna 
+C. Resiko Sistem Operasi 
+D. Resiko Privasi 
+E. Resiko Internet Browsing 
+ANSWER: B
+
+Contoh ViewGroup pada aplikasi mobile Android adalah (pilih 2): 
+A. ScrollView 
+B. ParentView 
+C. ChildView 
+D. GroupView 
+E. RecyclerView   
+ANSWER: A, E
+
+Berikut ini jenis layout pada Android Studio, kecuali: 
+A. Linear Layout  
+B. Fixed Layout 
+C. Relative Layout 
+D. Constraint Layout 
+E. Grid Layout 
+ANSWER: B
+
+Yang termasuk kategori / jenis bahasa pemrograman untuk aplikasi Mobile Native adalah: 
+A. iOS (Objective-C)
+B. React Native 
+C. Cordova 
+D. Framework7 
+E. Ionic Framework 
+ANSWER: A
+
+Yang termasuk tipe komponen yang dimiliki Android, kecuali: 
+A. Transactions  
+B. Activities 
+C. Services 
+D. Content Providers 
+E. Fragments 
+ANSWER: A
+
+Untuk berpindah dari satu Activity ke Activity lain menggunakan: 
+A. Intent 
+B. Activities 
+C. Services 
+D. Content Providers 
+ANSWER: A
+
+Pada Android, elemen user interface yang menampilkan data dan melakukan respon terhadap aksi yang dilakukan oleh user disebut: 
+A. Model 
+B. Presenter 
+C. Controller 
+D. Bridge 
+E. View 
+ANSWER: E
+
+Kombinasi beberapa View membentuk suatu: 
+A. Views 
+B. Presenters 
+C. Controllers 
+D. Models
+E. ViewGroup  
+ANSWER: E
+
+Sebuah sensor dengan kemampuan mematikan layar secara otomatis ketika sedang menelepon untuk menghemat baterei adalah: 
+A. Sensor Proximity 
+B. Sensor Gyroscope  
+C. Sensor Accelerometer 
+D. Sensor Barometer 
+ANSWER: A
+
+Sebuah area cakupan dari Radio Base Station yang berbentuk heksagonal dengan ukuran tertentu disebut:  
+A. Cell 
+B. Mobile Station 
+C. GSM 
+D. BTS 
+ANSWER: A
+
+Pengalihan panggilan dari satu cell ke cell lain ketika sebuah perangkat seluler bergerak melewati wilayah cakupan layanan lintas cell adalah:   
+A. Handover 
+B. Crossover 
+C. Frekuensi 
+D. Discovery 
+ANSWER: A
+
+Sebuah teknologi yang menggunakan sinyal satelit untuk menentukan posisi perangkat mobile adalah: 
+A. Time Difference of Arrival (TDOA)
+B. Angle of Arrival (AOA)
+C. Cell Sector 
+D. Enhanced Observed Time Difference (EOTD)
+E. Global Positioning System (GPS) 
+ANSWER: E
+
+Sebuah permission pada aplikasi mobile Android yang digunakan untuk request lokasi perangkat adalah (pilih 2): 
+A. android.permission.ACCESS_LOCATION
+B. android.permission.ACCESS_DEFINE_LOCATION
+C. android.permission.ACCESS_COARSE_LOCATION
+D. android.permission.COARSE_LOCATION
+E. android.permission.ACCESS_FINE_LOCATION
+ANSWER: C, E
+
+Mekanisme Location Based System untuk monitoring perpindahan objek adalah: 
+A. Location 
+B. Mapping 
+C. Tracking 
+D. Navigating 
+ANSWER: C
+
+Mekanisme Location Based System untuk membuat plot lokasi tertentu pada peta adalah: 
+A. Location 
+B. Mapping 
+C. Tracking 
+D. Navigating 
+ANSWER: D
+
+Sebuah teknologi yang menggunakan minimal 3 site dengan mengukur waktu kedatangan dari transmisi mobile system adalah: 
+A. Time Difference of Arrival (TDOA)
+B. Angle of Arrival (AOA)
+C. Cell Sector 
+D. Enhanced Observed Time Difference (EOTD)
+E. Global Positioning System (GPS) 
+ANSWER: A
+
+Sebuah fungsi pada aplikasi Android yang digunakan untuk mendapatkan lokasi terakhir dari perangkat mobile adalah: 
+A. removeLocationUpdates() 
+B. getLocations()  
+C. requestLocationUpdate()  
+D. getLastLocation()  
+ANSWER: D
+
+Sebuah database yang khusus digunakan untuk aplikasi berbasis mobile adalah: 
+A. MySQL Database 
+B. SQL Server 
+C. PostgreSQL Database 
+D. Oracle Database 
+E. SQLite Database 
+ANSWER: E
+
+Sebuah fungsi pada SQLite Database untuk membuka atau membuat database adalah:
+A. SQLiteDatabase.createDatabase() 
+B. SQLiteDatabase.createDB() 
+C. SQLiteDatabase.openOrCreateDatabase() 
+D. SQLiteDatabase.openDB() 
+ANSWER: C
+
+Pada SQLite Cursor, fungsi untuk mengenali posisi record pertama adalah:
+A. isLast()
+B. moveToFirst() 
+C. isFirst() 
+D. moveToNext() 
+E. moveToLast() 
+ANSWER: C
+
+Pada SQLite Cursor, fungsi untuk mengenali posisi record terakhir adalah:
+A. isLast()
+B. moveToFirst() 
+C. isFirst() 
+D. moveToNext() 
+E. moveToLast() 
+ANSWER: A
+
+Perintah SQL yang termasuk dalam DDL adalah, kecuali: 
+A. CREATE 
+B. ALTER 
+C. COMMIT 
+D. TRUNCATE 
+E. SELECT 
+ANSWER: C
+
+Menjalankan kueri SELECT pada SQLite menggunakan fungsi: 
+A. execSQL() 
+B. execute() 
+C. executeSQL() 
+D. rawQuery() 
+E. cursor() 
+ANSWER: D
+
+SQL Cursor yang digunakan untuk menavigasi record menuju ke posisi paling akhir adalah: 
+A. isFirst() 
+B. isLast() 
+C. moveToLast() 
+D. moveToFirst() 
+E. moveToNext() 
+ANSWER: C
+
+SQL Cursor yang digunakan untuk menavigasi record menuju ke posisi paling awal adalah: 
+A. isFirst() 
+B. isLast() 
+C. moveToLast() 
+D. moveToFirst() 
+E. moveToNext() 
+ANSWER: D
+
+Permission pada aplikasi Android untuk membaca file pada penyimpanan eksternal adalah: 
+A. android.permission.READ_EXTERNAL_STORAGE 
+B. android.permission.WRITE_EXTERNAL_STORAGE
+C. android.feature.WRITE_EXTERNAL_STORAGE
+D. android.feature.READ_EXTERNAL_STORAGE
+ANSWER: A
+
+Permission pada aplikasi Android untuk menulis file pada penyimpanan eksternal adalah: 
+A. android.permission.READ_EXTERNAL_STORAGE 
+B. android.permission.WRITE_EXTERNAL_STORAGE
+C. android.feature.WRITE_EXTERNAL_STORAGE
+D. android.feature.READ_EXTERNAL_STORAGE
+ANSWER: B
+
+Sebuah fungsi pada aplikasi Android untuk memeriksa apakah media penyimpanan tersedia atau tidak adalah: 
+A. getExternalStorageState() 
+B. getExternalStorageDirectory() 
+C. getExternalStoragePublicDirectory()
+D. getExternalStorageType()
+ANSWER: A
+
+Penyimpanan data yang bersifat permanen pada suatu media disebut dengan: 
+A. Data Persistence 
+B. Data Temporary 
+C. Data Internal 
+D. Data Cache 
+E. Data Eternal
+ANSWER: A
+
+Penyimpanan data yang bersifat sementara pada suatu media disebut dengan: 
+A. Data Persistence 
+B. Data Temporary 
+C. Data Internal 
+D. Data Cache 
+E. Data Eternal 
+ANSWER: B
+
+Berikut ini adalah jenis – jenis Data Storage adalah, kecuali: 
+A. Content Provider 
+B. Shared Preferences 
+C. Internal Storage 
+D. External Storage 
+E. Database 
+ANSWER: A
+
+Protokol komunikasi agar perangkat mobile memiliki IP Address permanen walaupun berpindah jaringan disebut: 
+A. Mobile IP 
+B. IP Address  
+C. MAC Address 
+D. IP Routing 
+ANSWER: A
+
+Yang merupakan bagian dari komponen – komponen jaringan seluler bergerak antara lain, kecuali: 
+A. GSM 
+B. PSTN 
+C. MSC 
+D. BTS 
+E. MS 
+ANSWER: A
+
+Global System for Mobile Comm. (GSM) merupakan teknologi seluler generasi ke: 
+A. 2G 
+B. 3G 
+C. 4G 
+D. 4.5G 
+E. 5G 
+ANSWER: A
+
+Yang termasuk jenis ancaman jaringan wireless adalah, kecuali:
+A. Sniffing 
+B. Wrong Password 
+C. Denial of Service
+D. Main in the Middle
+E. Unauthorized Access Point 
+ANSWER: B
+
+Metode pengamanan dengan membentuk jaringan private yang dilewatkan pada jaringan public disebut: 
+A. Mobile IP 
+B. Virtual Private Network (VPN) 
+C. Wireless Local Area Network (WLAN) 
+D. Global System Mobile (GSM) 
+E. Access Point 
+ANSWER: B
+
+Jenis / Fitur pada jenis keamanan Virtual Private Network adalah, kecuali: 
+A. Encryption 
+B. Strong Password 
+C. Tunelling 
+D. IPSec 
+ANSWER: B
