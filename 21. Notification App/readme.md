@@ -1,10 +1,55 @@
+## 🔟 Menambahkan Permission Android (Wajib)
+
+Agar **notifikasi bisa bergetar** dan **tetap aktif setelah perangkat di-restart**, tambahkan permission berikut ke file **AndroidManifest.xml**.
+
+📁 Lokasi file:
+
+```
+android/app/src/main/AndroidManifest.xml
+```
+
+📌 Tambahkan **di luar tag `<application>`**, biasanya di bagian atas file:
+
+```xml
+<uses-permission android:name="android.permission.VIBRATE"/>
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+```
+
+---
+
+### 📖 Penjelasan Permission
+
+#### 🔔 `android.permission.VIBRATE`
+
+* Mengizinkan aplikasi **mengaktifkan getaran**
+* Digunakan oleh notifikasi untuk:
+
+  * Feedback getar
+  * Notifikasi penting / high priority
+* Tanpa ini, notifikasi **tetap muncul tapi tidak bergetar**
+
+---
+
+#### 🔁 `android.permission.RECEIVE_BOOT_COMPLETED`
+
+* Mengizinkan aplikasi **menerima event setelah HP direstart**
+* Digunakan untuk:
+
+  * Mengaktifkan ulang **scheduled notification**
+  * Reminder / alarm yang sudah dijadwalkan sebelumnya
+* Sangat penting untuk aplikasi reminder / task / alarm
+
+---
+
+
+
 # 🔔 Flutter Awesome Notifications (Step by Step)
 
 Dokumentasi ini menjelaskan langkah demi langkah cara menggunakan **Awesome Notifications** di Flutter, mulai dari inisialisasi, permission, hingga menampilkan notifikasi dan badge.
 
 ---
 
-## 1️⃣ Menambahkan Dependency
+## 1️⃣ Menambahkan Dependency & Permission
 
 Tambahkan package `awesome_notifications` di file `pubspec.yaml`:
 
@@ -12,7 +57,7 @@ Tambahkan package `awesome_notifications` di file `pubspec.yaml`:
 dependencies:
   flutter:
     sdk: flutter
-  awesome_notifications: ^0.8.2
+    awesome_notifications: ^0.10.1
 ```
 
 Lalu jalankan:
@@ -20,6 +65,48 @@ Lalu jalankan:
 ```bash
 flutter pub get
 ```
+---
+
+### Menambahkan Permission Android (Wajib)
+
+Agar **notifikasi bisa bergetar** dan **tetap aktif setelah perangkat di-restart**, tambahkan permission berikut ke file **AndroidManifest.xml**.
+
+📁 Lokasi file:
+
+```
+android/app/src/main/AndroidManifest.xml
+```
+
+📌 Tambahkan **di luar tag `<application>`**, biasanya di bagian atas file:
+
+```xml
+<uses-permission android:name="android.permission.VIBRATE"/>
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+```
+
+---
+
+### 📖 Penjelasan Permission
+
+#### 🔔 `android.permission.VIBRATE`
+
+* Mengizinkan aplikasi **mengaktifkan getaran**
+* Digunakan oleh notifikasi untuk:
+
+  * Feedback getar
+  * Notifikasi penting / high priority
+* Tanpa ini, notifikasi **tetap muncul tapi tidak bergetar**
+
+---
+
+#### 🔁 `android.permission.RECEIVE_BOOT_COMPLETED`
+
+* Mengizinkan aplikasi **menerima event setelah HP direstart**
+* Digunakan untuk:
+
+  * Mengaktifkan ulang **scheduled notification**
+  * Reminder / alarm yang sudah dijadwalkan sebelumnya
+* Sangat penting untuk aplikasi reminder / task / alarm
 
 ---
 
