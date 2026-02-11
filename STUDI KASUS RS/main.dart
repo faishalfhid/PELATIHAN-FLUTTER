@@ -20,8 +20,20 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class ListPage extends StatelessWidget {
+class ListPage extends StatefulWidget {
   const ListPage({super.key});
+
+  @override
+  State<ListPage> createState() => _ListPageState();
+}
+
+class _ListPageState extends State<ListPage> {
+  late Future<List<Pasien>> pasienList;
+  @override
+  void initState() {
+    super.initState();
+    pasienList = PasienService.getPasien();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +42,19 @@ class ListPage extends StatelessWidget {
         title: Text("Daftar Pasien"),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
+        actions: [
+          IconButton(
+            onPressed: () {
+              setState(() {
+                pasienList = PasienService.getPasien();
+              });
+            },
+            icon: Icon(Icons.refresh),
+          ),
+        ],
       ),
       body: FutureBuilder(
-        future: PasienService.getPasien(),
+        future: pasienList,
         builder: (context, asyncSnapshot) {
           if (asyncSnapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -65,11 +87,17 @@ class ListPage extends StatelessWidget {
         height: 50,
         decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.blue),
         child: IconButton(
-          onPressed: () {
-            Navigator.push(
+          onPressed: () async {
+            await Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => RegistrationPage()),
             );
+            // if (result == true) {
+            //   setState(() {
+            //     pasienList;
+            //   });
+            // }
+            // print(result);
           },
           icon: Icon(Icons.add, color: Colors.white),
         ),
@@ -158,10 +186,17 @@ class _RegistrationPageState extends State<RegistrationPage> {
               );
 
               await PasienService.tambahPasien(pasien);
-              // Navigator.pushReplacement(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => ResultPage()),
-              // );
+
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultPage(
+                    namaPasien: namaPasienController.text,
+                    poliPasien: selectedPoli!,
+                    tanggalDaftar: tanggal,
+                  ),
+                ),
+              );
             },
             child: Text("Kirim Data"),
           ),
@@ -172,7 +207,16 @@ class _RegistrationPageState extends State<RegistrationPage> {
 }
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({super.key});
+  const ResultPage({
+    super.key,
+    required this.namaPasien,
+    required this.poliPasien,
+    required this.tanggalDaftar,
+  });
+
+  final String namaPasien;
+  final String poliPasien;
+  final String tanggalDaftar;
 
   @override
   Widget build(BuildContext context) {
@@ -186,11 +230,11 @@ class ResultPage extends StatelessWidget {
         padding: EdgeInsets.all(20),
         children: [
           Text(
-            "Nama Pasien",
+            namaPasien,
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
-          Text("Poli Pasien", style: TextStyle(fontSize: 12)),
-          Text("Tanggal Daftar", style: TextStyle(fontSize: 12)),
+          Text(poliPasien, style: TextStyle(fontSize: 12)),
+          Text(tanggalDaftar, style: TextStyle(fontSize: 12)),
         ],
       ),
     );
