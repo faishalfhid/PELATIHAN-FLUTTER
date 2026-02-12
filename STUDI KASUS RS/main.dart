@@ -32,6 +32,10 @@ class _ListPageState extends State<ListPage> {
   @override
   void initState() {
     super.initState();
+    refreshData();
+  }
+
+  void refreshData() {
     pasienList = PasienService.getPasien();
   }
 
@@ -46,7 +50,7 @@ class _ListPageState extends State<ListPage> {
           IconButton(
             onPressed: () {
               setState(() {
-                pasienList = PasienService.getPasien();
+                refreshData();
               });
             },
             icon: Icon(Icons.refresh),
@@ -78,6 +82,24 @@ class _ListPageState extends State<ListPage> {
               trailing: Text(
                 "Waktu Berobat: ${pasienList[index].tanggalDaftar}",
               ),
+              onTap: () async {
+                final result = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ResultPage(
+                      id: pasienList[index].id!,
+                      namaPasien: pasienList[index].nama!,
+                      poliPasien: pasienList[index].poli!,
+                      tanggalDaftar: pasienList[index].tanggalDaftar!,
+                    ),
+                  ),
+                );
+                if (result == true) {
+                  setState(() {
+                    refreshData();
+                  });
+                }
+              },
             ),
           );
         },
@@ -88,15 +110,15 @@ class _ListPageState extends State<ListPage> {
         decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.blue),
         child: IconButton(
           onPressed: () async {
-            await Navigator.push(
+            final bool? result = await Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => RegistrationPage()),
             );
-            // if (result == true) {
-            //   setState(() {
-            //     pasienList;
-            //   });
-            // }
+            if (result == true) {
+              setState(() {
+                refreshData();
+              });
+            }
             // print(result);
           },
           icon: Icon(Icons.add, color: Colors.white),
@@ -154,7 +176,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
             onPressed: () async {
               var results = await showCalendarDatePicker2Dialog(
                 context: context,
-                config: CalendarDatePicker2WithActionButtonsConfig(),
+                config: CalendarDatePicker2WithActionButtonsConfig(
+                  firstDate: DateTime.now(),
+                ),
                 dialogSize: const Size(325, 400),
                 value: _selectedDates,
                 borderRadius: BorderRadius.circular(15),
@@ -180,6 +204,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
               print(namaPasienController.text);
 
               Pasien pasien = Pasien(
+                id: "0",
                 nama: namaPasienController.text,
                 poli: selectedPoli,
                 tanggalDaftar: tanggal,
@@ -187,16 +212,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
               await PasienService.tambahPasien(pasien);
 
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ResultPage(
-                    namaPasien: namaPasienController.text,
-                    poliPasien: selectedPoli!,
-                    tanggalDaftar: tanggal,
-                  ),
-                ),
-              );
+              Navigator.pop(context, true);
             },
             child: Text("Kirim Data"),
           ),
@@ -209,11 +225,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
 class ResultPage extends StatelessWidget {
   const ResultPage({
     super.key,
+    required this.id,
     required this.namaPasien,
     required this.poliPasien,
     required this.tanggalDaftar,
   });
 
+  final String id;
   final String namaPasien;
   final String poliPasien;
   final String tanggalDaftar;
@@ -233,9 +251,149 @@ class ResultPage extends StatelessWidget {
             namaPasien,
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
+          Text("ID Pasien: $id", style: TextStyle(fontSize: 12)),
           Text(poliPasien, style: TextStyle(fontSize: 12)),
           Text(tanggalDaftar, style: TextStyle(fontSize: 12)),
+          SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () async {
+              final bool? result = await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => EditPage(
+                    id: id,
+                    namaPasien: namaPasien,
+                    poliPasien: poliPasien,
+                    tanggalDaftar: tanggalDaftar,
+                  ),
+                ),
+              );
+              if (result == true) {
+                Navigator.pop(context, true);
+              }
+            },
+            child: Text("Edit Data"),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.amber,
+              foregroundColor: Colors.white,
+            ),
+          ),
+          SizedBox(height: 5),
+          ElevatedButton(
+            onPressed: () async {
+              try {
+                await PasienService.deletePasien(int.parse(id));
+
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text("Data berhasil dihapus")),
+                );
+
+                Navigator.pop(
+                  context,
+                  true,
+                ); // kirim sinyal ke halaman sebelumnya
+              } catch (e) {
+                ScaffoldMessenger.of(
+                  context,
+                ).showSnackBar(SnackBar(content: Text(e.toString())));
+              }
+            },
+            child: Text("Hapus Data"),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.red,
+              foregroundColor: Colors.white,
+            ),
+          ),
         ],
+      ),
+    );
+  }
+}
+
+class EditPage extends StatefulWidget {
+  const EditPage({
+    super.key,
+    required this.id,
+    required this.namaPasien,
+    required this.poliPasien,
+    required this.tanggalDaftar,
+  });
+
+  final String id;
+  final String namaPasien;
+  final String poliPasien;
+  final String tanggalDaftar;
+
+  @override
+  State<EditPage> createState() => _EditPageState();
+}
+
+class _EditPageState extends State<EditPage> {
+  late TextEditingController namaController;
+  late String selectedPoli;
+
+  @override
+  void initState() {
+    super.initState();
+    namaController = TextEditingController(text: widget.namaPasien);
+    selectedPoli = widget.poliPasien;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Edit Data Pasien"),
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: [
+            TextField(
+              controller: namaController,
+              decoration: const InputDecoration(
+                labelText: "Nama Pasien",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 15),
+            DropdownButtonFormField<String>(
+              value: selectedPoli,
+              items: ['Umum', 'Anak', 'Jantung']
+                  .map(
+                    (poli) => DropdownMenuItem(value: poli, child: Text(poli)),
+                  )
+                  .toList(),
+              onChanged: (value) {
+                setState(() {
+                  selectedPoli = value!;
+                });
+              },
+              decoration: const InputDecoration(
+                labelText: "Pilih Poli",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () async {
+                Pasien pasien = Pasien(
+                  id: "${widget.id}",
+                  nama: namaController.text,
+                  poli: selectedPoli,
+                  tanggalDaftar: widget.tanggalDaftar,
+                );
+
+                await PasienService.updatePasien(pasien);
+
+                Navigator.pop(context, true); // kirim sinyal refresh
+              },
+              child: const Text("Update Data"),
+            ),
+          ],
+        ),
       ),
     );
   }
