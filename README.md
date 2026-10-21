@@ -1,5 +1,8 @@
-Latihan soal:
-https://wayground.com/join?gc=05081102
+Belajar Pembahasan Soal:
+https://faishalfhid.github.io/
+
+Panduan Deploy Flutter pada Android:
+https://drive.google.com/file/d/1MkEyx4bRqUQBV0EZFkTkI62PUeHt6jUY/view?usp=sharing
 
 # 📱 Flutter Learning Materials
 
